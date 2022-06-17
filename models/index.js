@@ -1,3 +1,3 @@
-const Tracking = require('./Tracking');
+const Tracking = require('./Tracking.js');
 
-module.export = { Tracking };
+module.exports = { Tracking };

@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const dateFormat = require('../utils/dateFormat');
+// const dateFormat = require('../utils/dateFormat');
 
 const trackingSchema = new Schema(
 
@@ -9,11 +9,17 @@ const trackingSchema = new Schema(
             type: String,
             require: true
         },
-        createAt: {
-            type: Date,
-            default: Date.now,
-            get: timestamp => dateFormat(timestamp)
-        }
+        // createAt: {
+        //     type: Date,
+        //     default: Date.now,
+        //     get: timestamp => dateFormat(timestamp)
+        // }
+    },
+    {
+        toJSON: {
+            virtuals: true,
+        },
+        id: false,
     }
 );
 
