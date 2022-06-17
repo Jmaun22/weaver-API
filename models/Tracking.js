@@ -19,4 +19,4 @@ const trackingSchema = new Schema(
 
 const Tracking = model('Tracking', trackingSchema);
 
-module.exports = Thought;
+module.exports = Tracking;
