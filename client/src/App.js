@@ -4,6 +4,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import API from './utils/API.js';
+import HeatMap from './componets/heatmap1.js';
+
 
 
 
@@ -46,7 +48,11 @@ const handleSubmit = (e) => {
 
       
     </form>
-    <h3 value={value}></h3>
+  <HeatMap/>
+    <div>
+
+
+    </div>
     <button onClick={ handleSubmit}>Search</button>
 
          
