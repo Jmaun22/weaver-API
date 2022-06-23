@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 3001;
 
 // middle ware
 app.use(express.urlencoded({ extended: true }));
+app.use(
+    cors()
+)
+
 app.use(express.json());
 app.use(routes);
 // Add Access Control Allow Origin headers
@@ -22,11 +26,6 @@ app.use(routes);
 //     next();
 //   });
 
-app.use(
-    cors({
-        origin: '*',
-    })
-)
 
 db.once('open', () => {
     app.listen(PORT, () => {
