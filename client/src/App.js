@@ -1,24 +1,58 @@
-import logo from './logo.svg';
+
 import './App.css';
+// import { Button,Card } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useState } from 'react';
+import API from './utils/API.js';
+
+
+
+
+
 
 function App() {
+
+  const [value, setValue] = useState();
+ 
+
+
+
+const handleSubmit = (e) => {
+    console.log('clicked api')
+    e.preventDefault();
+    // searchapi();
+ searchapi()
+
+
+    console.log(JSON.stringify(value))
+  };
+
+  const searchapi = (query) =>
+  API.search(query)
+    .then((res) => setValue(JSON.stringify(res)))
+    .catch((err) => console.log(err));
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <form>
+
+      <input type='text'
+      className='input' 
+      value={value}
+      placeholder='Add todo...' 
+      onChange={e => setValue(e.target.value)}/>
+
+
+      
+    </form>
+    <h3 value={value}></h3>
+    <button onClick={ handleSubmit}>Search</button>
+
+         
+
     </div>
+  
   );
 }
 
