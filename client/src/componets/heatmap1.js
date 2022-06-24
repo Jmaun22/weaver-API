@@ -1,44 +1,54 @@
-// // import heatmapInstance from 'heatmap.js'
-import React from "react";
-import h337 from "heatmap.js-fixed";
+import React, {useEffect} from "react";
+// import ReactDOM from "react-dom";
+import h337 from "heatmap.js";
 
-
+// import "./styles.css";
 
 function HeatMap() {
 
-    // create configuration object
-var config = {
-    container: document.getElementById('heatmapContainer'),
-    radius: 10,
-    maxOpacity: .5,
-    minOpacity: 0,
-    blur: .75
-  };
-  // create heatmap with configuration
-  var heatmapInstance = h337.create(config);
+  useEffect(() => {
+    var heatmapInstance = h337.create({
+      // only container is required, the rest will be defaults
+      container: document.querySelector('.App')
+    });
+    // now generate some random data
+    var points = [];
+    var max = 0;
+    var width = 840;
+    var height = 400;
+    var len = 200;
 
-  // a single datapoint
-var dataPoint = {
-    x: 5, // x coordinate of the datapoint, a number
-    y: 5, // y coordinate of the datapoint, a number
-    value: 100 // the value at datapoint(x, y)
+    while (len--) {
+     var val = Math.floor(Math.random()*100);
+     max = Math.max(max, val);
+     var point = {
+      x: Math.floor(Math.random()*width),
+      y: Math.floor(Math.random()*height),
+      value: val
+     };
+     points.push(point);
+   }
+   // heatmap data format
+  var data = {
+    max: max,
+    data: points
   };
-  heatmapInstance.addData(dataPoint);
-  
-  // multiple datapoints (for data initialization use setData!!)
-  var dataPoints = [dataPoint, dataPoint, dataPoint, dataPoint];
-  heatmapInstance.addData(dataPoints);
+  // if you have a set of datapoints always use setData instead of addData
+  // for data initialization
+  heatmapInstance.setData(data);
+ })
+
+
 
   return (
-
-    <div id='heatmapContainer'>
-
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
     </div>
-
   );
-
-
-
 }
 
-export default HeatMap;
+export default HeatMap
+
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<App />, rootElement);
