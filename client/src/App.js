@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { GlobalProvider } from "./Context/GlobalState";
+import 'bulma/css/bulma.min.css';
+
 
 
 export default function App() {
   return (
     <GlobalProvider>  
       <h1>HeatMap</h1>
+
       <nav
         style={{
           borderBottom: "solid 1px",
