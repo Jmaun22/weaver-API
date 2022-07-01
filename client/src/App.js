@@ -5,11 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import API from './utils/API.js';
 import HeatMap from './componets/heatmap1.js';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HeatMapPage from './pages/heatMap';
-import HomePage from './pages/homePage';
-import { StoreProvider } from './utils/GlobalState';
-
 
 
 
@@ -19,33 +14,50 @@ import { StoreProvider } from './utils/GlobalState';
 
 function App() {
 
+  const [value, setValue] = useState();
+ 
+
+
+
+const handleSubmit = (e) => {
+    console.log('clicked api')
+    e.preventDefault();
+    // searchapi();
+ searchapi()
+
+
+    console.log(JSON.stringify(value))
+  };
+
+  const searchapi = (query) =>
+  API.search(query)
+    .then((res) => setValue(JSON.stringify(res)))
+    .catch((err) => console.log(err));
 
   return (
+    <div className="App">
+
+    <form>
+
+      <input type='text'
+      className='input' 
+      value={value}
+      placeholder='Add todo...' 
+      onChange={e => setValue(e.target.value)}/>
 
 
-<Router>
-        <div>
-          <StoreProvider>
-            {/* <Nav /> */}
-            
-            <Routes>
-              <Route 
-                path="/" 
-                element={<HomePage />} 
-              />
-               <Route 
-                path="/heatmap" 
-                element={<HeatMapPage />} 
-              />
-           
-              
-            </Routes>
-            
-          </StoreProvider>
-          
-        </div>
-      </Router>
+      
+    </form>
+  <HeatMap/>
+    <div>
 
+
+    </div>
+    <button onClick={ handleSubmit}>Search</button>
+
+         
+
+    </div>
   
   );
 }
