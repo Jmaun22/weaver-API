@@ -1,15 +1,55 @@
 import React, { useState } from 'react';
 // Import our custom useStudentContext hook to have access to the initial state
 import { useStudentContext } from '../Contextex/StudentContext';
+import API from '../utils/API';
+import HeatMap from '../componets/heatmap1';
+
 
 export default function StudentList() {
     // Assign student related variables from our custom hook
-    const { students, addStudent, removeStudent, majors } = useStudentContext();
+    const { students, addStudent, removeStudent } = useStudentContext();
 
     // Initialize state for new students and new student majors
     const [newStudentName, setNewStudentName] = useState('');
     const [newStudentX, setNewStudentX] = useState('');
     const [newStudentY, setNewStudentY] = useState('');
+
+    // newly added heatmap
+    const [value, setValue] = useState();
+
+    const handleSubmit = (e) => {
+        console.log('clicked api')
+        console.log(students);
+        e.preventDefault();
+        
+     searchapi()
+    
+    
+        console.log(JSON.stringify(value))
+      };
+    
+      const searchapi = (query) =>
+      API.searchOne(query)
+        .then((res) => setValue(Object.values(JSON.parse(res.data.mousehover))))
+  
+          
+       
+        .catch((err) => console.log(err));
+  
+  
+  
+        function filterX() {
+          console.log(value);
+          for (var i = 0; i < 10; i++) {
+  
+            let { x, y, time } = value[i]
+  
+  
+            console.log(x, y, time)
+        
+    
+          }
+        }
 
     return (
         <div>
@@ -84,6 +124,8 @@ export default function StudentList() {
                             </button>
                         </div>
                     </section>
+                    <button onClick={filterX}>Filterx</button>
+      <button onClick={ handleSubmit}>Search</button>
                 </>
             ) : (
                 <span>Hmm... seems that there are no students here!</span>
