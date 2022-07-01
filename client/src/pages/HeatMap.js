@@ -22,9 +22,31 @@ function HeatMapPage() {
     };
   
     const searchapi = (query) =>
-    API.search(query)
-      .then((res) => setValue(JSON.stringify(res)))
+    API.searchOne(query)
+      .then((res) => setValue(Object.values(JSON.parse(res.data.mousehover))))
+
+        
+     
       .catch((err) => console.log(err));
+
+
+
+      function filterX() {
+        console.log(value);
+        for (var i = 0; i < 10; i++) {
+
+          let { x, y, time } = value[i]
+          
+
+          console.log(x, y, time)
+      
+  
+        }
+    
+
+// use values array or:
+
+      }
   
     return (
       <div >
@@ -47,6 +69,7 @@ function HeatMapPage() {
       </div>
 
       <p></p>
+      <button onClick={filterX}>Filterx</button>
       <button onClick={ handleSubmit}>Search</button>
   
            

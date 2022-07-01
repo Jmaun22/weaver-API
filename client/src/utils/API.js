@@ -4,5 +4,6 @@ const search = async () =>
   axios.get(`http://localhost:3001/api/tracking`);
 
 
-
-export default { search };
+const searchOne = async () => 
+axios.get(`http://localhost:3001/api/tracking/John`)
+export default { search, searchOne};
