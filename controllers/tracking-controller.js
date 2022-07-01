@@ -16,8 +16,10 @@ const trackingController = {
         });
     },
 
-    getOnetracking(req, res) {
-        Tracking.findOne()
+
+    getOneTracking(req, res) {
+
+        Tracking.findOne({ username: req.params.username  })
         .select('-__v')
         .then((dbTackedData) => {
             res.json(dbTackedData);
@@ -27,6 +29,7 @@ const trackingController = {
             console.log(err);
             res.status(500).json(err);
         });
+ 
     },
 
     createTracking(req, res) {

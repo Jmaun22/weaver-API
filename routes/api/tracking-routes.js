@@ -8,6 +8,7 @@ const {
 
 // /api/tracking
 
-router.route('/').get( getAllTracking).post(createTracking);
+router.route('/').get(getAllTracking).post(createTracking);
+router.route('/:username').get(getOneTracking);
 
 module.exports = router;
