@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 const {
     getAllTracking,
+    getOneTracking,
     createTracking,
 } = require('../../controllers/tracking-controller.js');
 

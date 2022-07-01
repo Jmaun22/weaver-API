@@ -16,6 +16,19 @@ const trackingController = {
         });
     },
 
+    getOnetracking(req, res) {
+        Tracking.findOne()
+        .select('-__v')
+        .then((dbTackedData) => {
+            res.json(dbTackedData);
+
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    },
+
     createTracking(req, res) {
         // res.send(Tracking.create(req.body));
         Tracking.create(req.body)

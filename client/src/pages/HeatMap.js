@@ -14,7 +14,7 @@ function HeatMapPage() {
   const handleSubmit = (e) => {
       console.log('clicked api')
       e.preventDefault();
-      // searchapi();
+      
    searchapi()
   
   
@@ -27,7 +27,7 @@ function HeatMapPage() {
       .catch((err) => console.log(err));
   
     return (
-      <div className="App">
+      <div >
   
       <form>
   
@@ -45,6 +45,8 @@ function HeatMapPage() {
   
   
       </div>
+
+      <p></p>
       <button onClick={ handleSubmit}>Search</button>
   
            
