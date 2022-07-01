@@ -1,8 +1,10 @@
-import API from './utils/API.js';
-import HeatMap from './componets/heatmap1.js';
+import API from '../utils/API';
+import HeatMap from '../componets/heatmap1';
+import React, {useState} from 'react';
 
 
-function App() {
+
+function HeatMapPage() {
 
     const [value, setValue] = useState();
    
@@ -12,7 +14,7 @@ function App() {
   const handleSubmit = (e) => {
       console.log('clicked api')
       e.preventDefault();
-      // searchapi();
+      
    searchapi()
   
   
@@ -25,7 +27,7 @@ function App() {
       .catch((err) => console.log(err));
   
     return (
-      <div className="App">
+      <div >
   
       <form>
   
@@ -43,6 +45,8 @@ function App() {
   
   
       </div>
+
+      <p></p>
       <button onClick={ handleSubmit}>Search</button>
   
            
@@ -51,3 +55,5 @@ function App() {
     
     );
   }
+
+  export default HeatMapPage

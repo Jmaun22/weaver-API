@@ -5,6 +5,10 @@ const { Schema, model } = require('mongoose');
 const trackingSchema = new Schema(
 
     {
+        username: {
+            type: String,
+            require: false
+        },
         mousehover: {
             type: String,
             require: true
