@@ -1,33 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 // import ReactDOM from "react-dom";
 import h337 from "heatmap.js";
-import API from '../utils/API';
-
 
 // import "./styles.css";
 
 function HeatMap() {
-
-
-  const [value, setValue] = useState();
- 
-
-
-
-const handleSubmit = (e) => {
-    console.log('clicked api')
-    e.preventDefault();
-    // searchapi();
- searchapi()
-
-
-    console.log(JSON.stringify(value))
-  };
-
-  const searchapi = (query) =>
-  API.search(query)
-    .then((res) => setValue(JSON.stringify(res)))
-    .catch((err) => console.log(err));
 
   useEffect(() => {
     var heatmapInstance = h337.create({
@@ -41,20 +18,16 @@ const handleSubmit = (e) => {
     var height = 400;
     var len = 200;
 
-  //   while (len--) {
-  //    var val = Math.floor(Math.random()*100);
-  //    max = Math.max(max, val);
-  //    var point = {
-  //     x: Math.floor(Math.random()*width),
-  //     y: Math.floor(Math.random()*height),
-  //     value: val
-  //    };
-  //    points.push(point);
-  //  }
-
-  //  add x and y cooridated to the points
-
-
+    while (len--) {
+     var val = Math.floor(Math.random()*100);
+     max = Math.max(max, val);
+     var point = {
+      x: Math.floor(Math.random()*width),
+      y: Math.floor(Math.random()*height),
+      value: val
+     };
+     points.push(point);
+   }
    // heatmap data format
   var data = {
     max: max,
@@ -71,7 +44,6 @@ const handleSubmit = (e) => {
     <div className="App">
       <h1>Hello CodeSandbox</h1>
       <h2>Start editing to see some magic happen!</h2>
-      <button onClick={handleSubmit}>Generate HeatMap</button>
     </div>
   );
 }
