@@ -9,20 +9,22 @@ export const StudentProvider = ({ children }) => {
   const [students, setStudents] = useState([
     {
       id: 1,
-      name: 'Sayid',
-      major: 'Computer Science',
+      username: 'Sayid',
+      x: [2,3,2,3],
+      y: [3,2,3,12,]
     },
     {
       id: 2,
-      name: 'Sun-Hwa',
-      major: 'Data Science',
+      username: 'Sun-Hwa',
+      x: [2,3,2,3],
+      y: [3,2,3,12,]
     },
   ]);
 
   // Function to add a student
   const addStudent = (student) => {
     // Prevent adding blank entries
-    if (!student.name) {
+    if (!student.username) {
       return;
     }
     let id;
