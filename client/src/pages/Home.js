@@ -1,8 +1,11 @@
-
+import React from "react";
+import AddUserData from "../componets/addUser.js"
 export default function Home() {
     return (
       <main style={{ padding: "1rem 0" }}>
         <h2>Home</h2>
+        <AddUserData/>
+
       </main>
     );
   }

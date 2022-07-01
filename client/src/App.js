@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { GlobalProvider } from "./Context/GlobalState";
+
 
 export default function App() {
   return (
-    <div>
+    <GlobalProvider>  
       <h1>HeatMap</h1>
       <nav
         style={{
@@ -14,7 +16,7 @@ export default function App() {
         <Link to="/about">About</Link>
         <Link to="/heatmap">HeatMap</Link>
       </nav>
-    </div>
+      </GlobalProvider>
   );
 }
 
