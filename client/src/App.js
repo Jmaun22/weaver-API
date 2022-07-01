@@ -12,6 +12,7 @@ export default function App() {
       >
         <Link to="/home">Home</Link> |{" "}
         <Link to="/about">About</Link>
+        <Link to="/heatmap">HeatMap</Link>
       </nav>
     </div>
   );

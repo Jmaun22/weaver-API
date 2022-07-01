@@ -1,8 +1,10 @@
-import API from './utils/API.js';
-import HeatMap from './componets/heatmap1.js';
+import API from '../utils/API';
+import HeatMap from '../componets/heatmap1';
+import React, {useState} from 'react';
 
 
-function App() {
+
+function HeatMapPage() {
 
     const [value, setValue] = useState();
    
@@ -51,3 +53,5 @@ function App() {
     
     );
   }
+
+  export default HeatMapPage
