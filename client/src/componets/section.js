@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import { Section, Container, Heading } from "react-bulma-components";
+import BenfitCard from "./benfitCard";
 
 class SectionComp extends Component {
 
@@ -15,7 +16,7 @@ class SectionComp extends Component {
       <Heading subtitle>
         A simple container to divide your page into{' '}
         <strong>
-          sections
+        <BenfitCard />
         </strong>
         , like the one you are currently reading
       </Heading>
@@ -29,7 +30,7 @@ class SectionComp extends Component {
       <Heading subtitle>
         A simple container to divide your page into{' '}
         <strong>
-          sections
+        <BenfitCard />
         </strong>
         , like the one you are currently reading
       </Heading>
@@ -43,7 +44,7 @@ class SectionComp extends Component {
       <Heading subtitle>
         A simple container to divide your page into{' '}
         <strong>
-          sections
+        <BenfitCard />
         </strong>
         , like the one you are currently reading
       </Heading>
