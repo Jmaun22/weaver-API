@@ -20,7 +20,9 @@
     "heatmap.js": "^2.0.5",
     "heatmap.js-fixed": "^2.0.2",
     "mongoose": "^6.0.13",
-    "react-bootstrap": "^2.4.0"
+    "react-bootstrap": "^2.4.0",
+    "react-helmet": "^6.1.0",
+    "react-square-web-payments-sdk": "^3.2.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
